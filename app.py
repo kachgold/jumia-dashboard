@@ -37,7 +37,8 @@ def file_get_contents(file_name):
 @web_login_required
 def index():
     products = json.loads(file_get_contents('./products.json'))
-    return render_template('dashboard.html',products=products)
+    bot_results = {}
+    return render_template('dashboard.html',products=products, bot_results=bot_results)
 
 @app.route("/logout")
 @web_login_required
@@ -67,4 +68,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=8001)
